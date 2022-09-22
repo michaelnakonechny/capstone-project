@@ -21,6 +21,10 @@ let ingredients = [
     chosen: false,
     category: 'toppings',
   },
+  //   Topping1: 'Dummy Topping 1',
+  //   Topping2: 'Dummy Topping 2',
+  //   Topping3: 'Dummy Topping 3',
+  // },
   ,
 ];
 
