@@ -14,6 +14,7 @@ let ingredients = [
   {
     name: 'Dummy Bread 3',
     chosen: false,
+    category: 'bread',
   },
   {
     name: 'Dummy Topping 3',
