@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { useState } from 'react';
+import Head from 'next/head';
 
-let ingredients = [
+const defaultIngredients = [
   {
     name: 'Dummy Bread 1',
     chosen: false,
@@ -24,35 +26,44 @@ let ingredients = [
 ];
 
 export default function Home() {
+  const [ingredients, setIngredients] = useState(defaultIngredients);
+
   function editBagle(ingredient) {
-    if (ingredient.chosen) {
-      ingredient.chosen = false;
-    } else {
-      ingredient.chosen = true;
-    }
+    ingredient.chosen = !ingredient.chosen;
   }
 
   return (
     <div>
+      <Head>
+        <title>Parkbench Bagels</title>
+      </Head>
+
       <h1>Parkbench Bagels</h1>
 
       <h2>Build your own Bagle!</h2>
+      <form
+        onSubmit={(e) => {
+          // only for Testing
+          e.preventDefault();
+          console.log(e.t);
+        }}
+      >
+        <ul>
+          {ingredients.map((ingredient) => {
+            return (
+              <li key={ingredient.name}>
+                {ingredient.name}
+                <input
+                  type="checkbox"
+                  onChange={() => editBagle(ingredient)}
+                ></input>
+              </li>
+            );
+          })}
+        </ul>
 
-      <ul>
-        {ingredients.map((ingredient) => {
-          return (
-            <li key={ingredient.name}>
-              {ingredient.name}
-              <input
-                type="checkbox"
-                onChange={() => editBagle(ingredient)}
-              ></input>
-            </li>
-          );
-        })}
-      </ul>
-
-      <Button onClick={() => {}}>Submit</Button>
+        <Button>Submit</Button>
+      </form>
     </div>
   );
 }
