@@ -21,21 +21,15 @@ let ingredients = [
     chosen: false,
     category: 'toppings',
   },
-  //   Topping1: 'Dummy Topping 1',
-  //   Topping2: 'Dummy Topping 2',
-  //   Topping3: 'Dummy Topping 3',
-  // },
-  ,
 ];
 
 export default function Home() {
   function editBagle(ingredient) {
-    if (ingredient.chosen === true) {
+    if (ingredient.chosen) {
       ingredient.chosen = false;
     } else {
       ingredient.chosen = true;
     }
-    console.log(ingredient);
   }
 
   return (
@@ -47,7 +41,6 @@ export default function Home() {
       <ul>
         {ingredients.map((ingredient) => {
           return (
-            // key is not mandatory, but best practise to set
             <li key={ingredient.name}>
               {ingredient.name}
               <input
@@ -59,13 +52,7 @@ export default function Home() {
         })}
       </ul>
 
-      <Button
-        onClick={() => {
-          console.log(ingredients);
-        }}
-      >
-        Submit
-      </Button>
+      <Button onClick={() => {}}>Submit</Button>
     </div>
   );
 }
