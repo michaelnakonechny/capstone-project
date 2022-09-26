@@ -1,39 +1,23 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-const defaultIngredients = [
-  {
-    name: 'Dummy Bread 1',
-    chosen: false,
-    category: 'bread',
-  },
-  {
-    name: 'Dummy Bread 2',
-    chosen: false,
-    category: 'bread',
-  },
-  {
-    name: 'Dummy Bread 3',
-    chosen: false,
-    category: 'bread',
-  },
-  {
-    name: 'Dummy Topping 3',
-    chosen: false,
-    category: 'toppings',
-  },
-];
+export default function Home({ ingredients, onUpdateIngredients }) {
+  const router = useRouter();
 
-export default function Home() {
-  const [ingredients, setIngredients] = useState(defaultIngredients);
-
-  function editBagle(ingredient) {
-    ingredient.chosen = !ingredient.chosen;
+  function editBagle(id) {
+    const updatedIngredients = ingredients.map((ingredient) => {
+      if (ingredient.id === id) {
+        ingredient.chosen = !ingredient.chosen;
+      }
+      return ingredient;
+    });
+    onUpdateIngredients(updatedIngredients);
   }
 
   return (
-    <div>
+    <>
       <Head>
         <title>Parkbench Bagels</title>
       </Head>
@@ -42,29 +26,30 @@ export default function Home() {
 
       <h2>Build your own Bagle!</h2>
       <form
-        onSubmit={(e) => {
-          // only for Testing
-          e.preventDefault();
-          console.log(e.t);
+        onSubmit={(event) => {
+          event.preventDefault();
+          console.log(event);
+          router.push({ pathname: '/shoppingcart', query: { data: 'test' } });
         }}
       >
         <ul>
-          {ingredients.map((ingredient) => {
+          {ingredients.map((ingredient, index) => {
             return (
-              <li key={ingredient.name}>
+              <li key={index}>
                 {ingredient.name}
                 <input
                   type="checkbox"
-                  onChange={() => editBagle(ingredient)}
-                ></input>
+                  id={ingredient.id}
+                  onChange={() => editBagle(ingredient.id)}
+                />
               </li>
             );
           })}
         </ul>
 
-        <Button>Submit</Button>
+        <Button type="submit">Submit</Button>
       </form>
-    </div>
+    </>
   );
 }
 

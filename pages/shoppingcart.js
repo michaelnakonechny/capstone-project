@@ -1,8 +1,18 @@
-function ShoppingCart() {
+function ShoppingCart({ ingredients }) {
+  console.log(ingredients.filter((ingredient) => ingredient.chosen));
+
+  const selection = ingredients.filter((ingredient) => ingredient.chosen);
+
   return (
-    <div>
+    <>
       <h1>Shopping Cart</h1>
-    </div>
+
+      <ul>
+        {selection.map((ingredient) => {
+          return <li key={ingredient.id}>{ingredient.name}</li>;
+        })}
+      </ul>
+    </>
   );
 }
 
