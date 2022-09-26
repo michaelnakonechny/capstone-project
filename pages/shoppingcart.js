@@ -1,6 +1,4 @@
 function ShoppingCart({ ingredients }) {
-  console.log(ingredients.filter((ingredient) => ingredient.chosen));
-
   const selection = ingredients.filter((ingredient) => ingredient.chosen);
 
   return (
