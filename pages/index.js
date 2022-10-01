@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Footer from './components/Footer';
 
 export default function Home({ ingredients, onUpdateIngredients }) {
   const router = useRouter();
@@ -19,12 +18,6 @@ export default function Home({ ingredients, onUpdateIngredients }) {
 
   return (
     <>
-      <Head>
-        <title>PARKBENCH BAGELS</title>
-      </Head>
-      <Heading>
-        <h1>PARKBENCH BAGELS</h1>
-      </Heading>
       <h2>Build your own Bagel!</h2>
       <form
         onSubmit={(event) => {
@@ -50,8 +43,6 @@ export default function Home({ ingredients, onUpdateIngredients }) {
 
         <Button type="submit">Submit</Button>
       </form>
-
-      <Footer />
     </>
   );
 }
