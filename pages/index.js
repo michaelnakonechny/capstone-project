@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Footer from './components/Footer';
 
 export default function Home({ ingredients, onUpdateIngredients }) {
   const router = useRouter();
@@ -19,12 +20,12 @@ export default function Home({ ingredients, onUpdateIngredients }) {
   return (
     <>
       <Head>
-        <title>Parkbench Bagels</title>
+        <title>PARKBENCH BAGELS</title>
       </Head>
-
-      <h1>Parkbench Bagels</h1>
-
-      <h2>Build your own Bagle!</h2>
+      <Heading>
+        <h1>PARKBENCH BAGELS</h1>
+      </Heading>
+      <h2>Build your own Bagel!</h2>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -49,6 +50,8 @@ export default function Home({ ingredients, onUpdateIngredients }) {
 
         <Button type="submit">Submit</Button>
       </form>
+
+      <Footer />
     </>
   );
 }
@@ -56,4 +59,22 @@ export default function Home({ ingredients, onUpdateIngredients }) {
 const Button = styled.button`
   background: orange;
   color: white;
+`;
+
+const Heading = styled.header`
+  background-color: #1b1a1c;
+  width: 100%;
+  height: 48px;
+  color: #fab214;
+  font-family: 'lulo-clean', sans-serif;
+  font-weight: bold;
+  font-size: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  margin: 0;
+  margin-bottom: 3rem;
+  z-index: 1;
 `;
