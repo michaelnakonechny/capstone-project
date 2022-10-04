@@ -6,17 +6,17 @@ export default function Footer() {
     <NavFooter>
       <Navbar>
         <Link href="/">
-          <Navlinks>HOME</Navlinks>
+          <NavLink>HOME</NavLink>
         </Link>
         <Link href="/shoppingcart">
-          <Navlinks>CART</Navlinks>
+          <NavLink>CART</NavLink>
         </Link>
       </Navbar>
     </NavFooter>
   );
 }
 
-const Navlinks = styled.a`
+const NavLink = styled.a`
   color: #fab214;
   cursor: pointer;
 `;

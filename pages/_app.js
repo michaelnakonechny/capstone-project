@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import Layout from './components/Layout';
 
 const defaultIngredients = [
   {
@@ -32,20 +31,15 @@ const defaultIngredients = [
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
 
-  // this renders on "localhost:3000" -> index.js
-  // and on "localhost:3000/shoppingcart" -> shoppingcart.js
-  // and on ".../whatever" -> whatever.js
-  // it always gives the rendered js file two properties: "ingredients" and "onUpdateIngredients"
   return (
     <>
-      <Header />
-      <Component
-        {...pageProps}
-        ingredients={ingredients}
-        onUpdateIngredients={setIngredients}
-      />
-
-      <Footer />
+      <Layout>
+        <Component
+          {...pageProps}
+          ingredients={ingredients}
+          onUpdateIngredients={setIngredients}
+        />
+      </Layout>
     </>
   );
 }
