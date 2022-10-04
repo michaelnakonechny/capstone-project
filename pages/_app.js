@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Layout from './components/Layout';
 
 const defaultIngredients = [
   {
@@ -31,11 +32,15 @@ function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
 
   return (
-    <Component
-      {...pageProps}
-      ingredients={ingredients}
-      onUpdateIngredients={setIngredients}
-    />
+    <>
+      <Layout>
+        <Component
+          {...pageProps}
+          ingredients={ingredients}
+          onUpdateIngredients={setIngredients}
+        />
+      </Layout>
+    </>
   );
 }
 

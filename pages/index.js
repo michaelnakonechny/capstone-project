@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 export default function Home({ ingredients, onUpdateIngredients }) {
@@ -18,13 +17,7 @@ export default function Home({ ingredients, onUpdateIngredients }) {
 
   return (
     <>
-      <Head>
-        <title>Parkbench Bagels</title>
-      </Head>
-
-      <h1>Parkbench Bagels</h1>
-
-      <h2>Build your own Bagle!</h2>
+      <h2>Build your own Bagel!</h2>
       <form
         onSubmit={(event) => {
           event.preventDefault();
