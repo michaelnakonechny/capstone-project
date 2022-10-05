@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from './components/Layout';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const defaultIngredients = [
   {
@@ -30,14 +31,17 @@ const defaultIngredients = [
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
-
+  const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
+    'ingredients',
+    []
+  );
   return (
     <>
       <Layout>
         <Component
           {...pageProps}
           ingredients={ingredients}
-          onUpdateIngredients={setIngredients}
+          onUpdateIngredients={setSelectedIngredients}
         />
       </Layout>
     </>

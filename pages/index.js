@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 import { useRouter } from 'next/router';
 
-export default function Home({ ingredients, onUpdateIngredients }) {
+export default function Home({
+  ingredients,
+  onUpdateIngredients,
+  selectedIngredients,
+}) {
   const router = useRouter();
 
   function editBagle(id) {
