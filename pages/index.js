@@ -1,23 +1,15 @@
 import styled from 'styled-components';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 import { useRouter } from 'next/router';
 
-export default function Home({
-  ingredients,
-  onUpdateIngredients,
-  selectedIngredients,
-}) {
+export default function Home({ ingredients, onEditBagle }) {
   const router = useRouter();
 
-  function editBagle(id) {
-    const updatedIngredients = ingredients.map((ingredient) => {
-      if (ingredient.id === id) {
-        ingredient.chosen = !ingredient.chosen;
-      }
-      return ingredient;
-    });
-    onUpdateIngredients(updatedIngredients);
-  }
+  const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
+    '_ingredients',
+    []
+  );
 
   return (
     <>
@@ -26,6 +18,9 @@ export default function Home({
         onSubmit={(event) => {
           event.preventDefault();
           console.log(event);
+          setSelectedIngredients(
+            ingredients.filter((ingredient) => ingredient.chosen)
+          );
           router.push({ pathname: '/shoppingcart', query: { data: 'test' } });
         }}
       >
@@ -37,7 +32,8 @@ export default function Home({
                 <input
                   type="checkbox"
                   id={ingredient.id}
-                  onChange={() => editBagle(ingredient.id)}
+                  onChange={() => onEditBagle(ingredient.id)}
+                  value={ingredient.chosen}
                 />
               </li>
             );

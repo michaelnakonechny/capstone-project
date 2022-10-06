@@ -1,14 +1,16 @@
-function ShoppingCart({ ingredients, onUpdateIngredients }) {
-  const selection = ingredients.filter((ingredient) => ingredient.chosen);
+import useLocalStorage from '../hooks/useLocalStorage';
+
+function ShoppingCart() {
+  const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
+    '_ingredients',
+    []
+  );
 
   function removeBagle(id) {
-    const updatedIngredients = ingredients.map((ingredient) => {
-      if (ingredient.id === id) {
-        ingredient.chosen = false;
-      }
-      return ingredient;
-    });
-    onUpdateIngredients(updatedIngredients);
+    const newIngredients = selectedIngredients.filter(
+      (ingredient) => ingredient.id !== id
+    );
+    setSelectedIngredients(newIngredients);
   }
 
   return (
@@ -16,12 +18,12 @@ function ShoppingCart({ ingredients, onUpdateIngredients }) {
       <h2>Shopping Cart</h2>
 
       <ul>
-        {selection.map((ingredient) => {
+        {selectedIngredients.map((ingredient) => {
           return (
-            <>
-              <li key={ingredient.id}>{ingredient.name}</li>;
+            <div key={ingredient.id}>
+              <li>{ingredient.name}</li>;
               <button onClick={() => removeBagle(ingredient.id)}>Remove</button>
-            </>
+            </div>
           );
         })}
       </ul>

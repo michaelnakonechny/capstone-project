@@ -31,17 +31,24 @@ const defaultIngredients = [
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
-  const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
-    'ingredients',
-    []
-  );
+
+  function editBagle(id) {
+    const updatedIngredients = ingredients.map((ingredient) => {
+      if (ingredient.id === id) {
+        ingredient.chosen = !ingredient.chosen;
+      }
+      return ingredient;
+    });
+    setIngredients(updatedIngredients);
+  }
+
   return (
     <>
       <Layout>
         <Component
           {...pageProps}
           ingredients={ingredients}
-          onUpdateIngredients={setSelectedIngredients}
+          onEditBagle={editBagle}
         />
       </Layout>
     </>
