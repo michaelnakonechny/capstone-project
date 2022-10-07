@@ -1,3 +1,4 @@
+import React from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 function ShoppingCart() {
@@ -20,10 +21,10 @@ function ShoppingCart() {
       <ul>
         {selectedIngredients.map((ingredient) => {
           return (
-            <div key={ingredient.id}>
+            <React.Fragment key={ingredient.id}>
               <li>{ingredient.name}</li>;
               <button onClick={() => removeBagle(ingredient.id)}>Remove</button>
-            </div>
+            </React.Fragment>
           );
         })}
       </ul>
