@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import useLocalStorage from '../hooks/useLocalStorage';
+import BasicMenu from './components/menu';
 
 import { useRouter } from 'next/router';
 
@@ -13,11 +14,11 @@ export default function Home({ ingredients, onEditBagle }) {
 
   return (
     <>
+      <BasicMenu />
       <h2>Build your own Bagel!</h2>
       <form
         onSubmit={(event) => {
           event.preventDefault();
-          console.log(event);
           setSelectedIngredients(
             ingredients.filter((ingredient) => ingredient.chosen)
           );

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styled from 'styled-components';
+import BasicMenu from './menu';
 
 export default function Header() {
   return (
@@ -10,6 +11,7 @@ export default function Header() {
       <Heading>
         <h1>PARKBENCH BAGELS</h1>
       </Heading>
+      <BasicMenu />
     </>
   );
 }
