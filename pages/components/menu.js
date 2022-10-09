@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
-import DeleteIcon from '@mui/icons-material/Delete';
+import styled from 'styled-components';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -37,13 +37,18 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>
-          <Link style={MenuItemStyle} href="/about">
-            About
-          </Link>
+        <Link href="/about">
+          <MenuItem style={MenuItemStyle} onClick={handleClose}>
+            ABOUT
+          </MenuItem>
+        </Link>
+
+        <MenuItem style={MenuItemStyle} onClick={handleClose}>
+          MY ACCOUNT
         </MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem style={MenuItemStyle} onClick={handleClose}>
+          LOGOUT
+        </MenuItem>
       </Menu>
     </div>
   );
@@ -61,5 +66,11 @@ const ButtonStyle = {
 };
 
 const MenuItemStyle = {
+  backgroundColor: '#1b1a1c',
   textDecoration: 'none',
+  color: '#fab214',
+};
+
+const MenuStyle = {
+  backgroundColor: '#1b1a1c',
 };
