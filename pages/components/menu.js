@@ -2,6 +2,9 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import Link from 'next/link';
+import MenuIcon from '@mui/icons-material/Menu';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -14,15 +17,16 @@ export default function BasicMenu() {
   };
 
   return (
-    <div>
+    <div style={BurgerMenuStyle}>
       <Button
+        style={ButtonStyle}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Dashboard
+        <MenuIcon />
       </Button>
       <Menu
         id="basic-menu"
@@ -33,7 +37,11 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link style={MenuItemStyle} href="/about">
+            About
+          </Link>
+        </MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
@@ -41,8 +49,17 @@ export default function BasicMenu() {
   );
 }
 
-export const BurgerMenuStyle = {
+const BurgerMenuStyle = {
   position: 'absolute',
   top: '1rem',
   left: '1rem',
+};
+
+const ButtonStyle = {
+  color: '#fab214',
+  fontFamily: 'lulo-clean, sans-serif',
+};
+
+const MenuItemStyle = {
+  textDecoration: 'none',
 };

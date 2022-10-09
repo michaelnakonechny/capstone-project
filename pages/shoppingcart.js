@@ -1,5 +1,8 @@
 import React from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
+import styled from 'styled-components';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ShoppingCart() {
   const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
@@ -22,8 +25,15 @@ function ShoppingCart() {
         {selectedIngredients.map((ingredient) => {
           return (
             <React.Fragment key={ingredient.id}>
-              <li>{ingredient.name}</li>;
-              <button onClick={() => removeBagle(ingredient.id)}>Remove</button>
+              <li>
+                {ingredient.name}
+                <IconButton
+                  onClick={() => removeBagle(ingredient.id)}
+                  aria-label="delete"
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </li>
             </React.Fragment>
           );
         })}
@@ -33,3 +43,5 @@ function ShoppingCart() {
 }
 
 export default ShoppingCart;
+
+const RemoveButton = styled.button``;
