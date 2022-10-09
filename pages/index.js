@@ -28,13 +28,14 @@ export default function Home({ ingredients, onEditBagle }) {
           {ingredients.map((ingredient, index) => {
             return (
               <MenuCard key={index}>
-                <Image
-                  width="300px"
-                  height="300px"
-                  src={Dummybread}
-                  alt={ingredient.name}
-                  layout="responsive"
-                />
+                <div>
+                  <Image
+                    width="50px"
+                    height="50px"
+                    src={Dummybread}
+                    alt={ingredient.name}
+                  />
+                </div>
                 {ingredient.name}
                 <input
                   type="checkbox"
@@ -60,7 +61,7 @@ const Button = styled.button`
 
 const MenuCard = styled.li`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border: 1px solid black;
   list-style: none;
