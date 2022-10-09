@@ -43,10 +43,11 @@ export default function BasicMenu() {
             ABOUT
           </MenuItem>
         </Link>
-
-        <MenuItem style={MenuItemStyle} onClick={handleClose}>
-          MY ACCOUNT
-        </MenuItem>
+        <Link href="/account">
+          <MenuItem style={MenuItemStyle} onClick={handleClose}>
+            MY ACCOUNT
+          </MenuItem>
+        </Link>
         <MenuItem style={MenuItemStyle} onClick={handleClose}>
           LOGOUT
         </MenuItem>
