@@ -8,7 +8,13 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: arial;
     margin: 0;
+    height: 100%;
   }
+
+  .MuiMenu-paper {
+    background-color: #1b1a1c;
+  }
+
 `;
 
 export default GlobalStyle;

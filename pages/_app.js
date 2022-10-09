@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import Layout from './components/Layout';
 import useLocalStorage from '../hooks/useLocalStorage';
 import { defaultIngredients } from './ingredients';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '../theme';
+import GlobalCSS from '../GlobalStyle';
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
@@ -17,7 +20,8 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalCSS />
       <Layout>
         <Component
           {...pageProps}
@@ -25,7 +29,7 @@ function MyApp({ Component, pageProps }) {
           onEditBagle={editBagle}
         />
       </Layout>
-    </>
+    </ThemeProvider>
   );
 }
 
