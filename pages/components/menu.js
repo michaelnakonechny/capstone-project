@@ -40,3 +40,9 @@ export default function BasicMenu() {
     </div>
   );
 }
+
+export const BurgerMenuStyle = {
+  position: 'absolute',
+  top: '1rem',
+  left: '1rem',
+};
