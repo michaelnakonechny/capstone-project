@@ -1,13 +1,12 @@
-import * as React from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Link from 'next/link';
-import MenuIcon from '@mui/icons-material/Menu';
-import styled from 'styled-components';
+import { useState } from 'react';
 
-export default function BasicMenu() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+export default function MainMenu() {
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -63,8 +62,4 @@ const ButtonStyle = {
 const MenuItemStyle = {
   textDecoration: 'none',
   color: '#fab214',
-};
-
-const MenuStyle = {
-  backgroundColor: '#1b1a1c',
 };

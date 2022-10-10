@@ -1,10 +1,9 @@
-import { useEffect, useState } from 'react';
-import Layout from './components/Layout';
-import useLocalStorage from '../hooks/useLocalStorage';
-import { defaultIngredients } from './ingredients';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from '../theme';
+import { useState } from 'react';
+import { defaultIngredients } from '../data/defaultIngredients';
 import GlobalCSS from '../GlobalStyle';
+import theme from '../theme';
+import Layout from './components/Layout';
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);

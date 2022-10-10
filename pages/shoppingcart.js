@@ -24,17 +24,15 @@ function ShoppingCart() {
       <ul>
         {selectedIngredients.map((ingredient) => {
           return (
-            <React.Fragment key={ingredient.id}>
-              <li>
-                {ingredient.name}
-                <IconButton
-                  onClick={() => removeBagle(ingredient.id)}
-                  aria-label="delete"
-                >
-                  <DeleteIcon />
-                </IconButton>
-              </li>
-            </React.Fragment>
+            <li key={ingredient.id}>
+              {ingredient.name}
+              <IconButton
+                onClick={() => removeBagle(ingredient.id)}
+                aria-label="delete"
+              >
+                <DeleteIcon />
+              </IconButton>
+            </li>
           );
         })}
       </ul>
@@ -43,5 +41,3 @@ function ShoppingCart() {
 }
 
 export default ShoppingCart;
-
-const RemoveButton = styled.button``;

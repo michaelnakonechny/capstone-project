@@ -1,7 +1,6 @@
-import Head from 'next/head';
-import styled from 'styled-components';
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import Menu from './menu';
+import Head from 'next/head';
+import MainMenu from './Mainmenu';
 
 export default function Header() {
   return (
@@ -11,7 +10,7 @@ export default function Header() {
       </Head>
       <AppBar position="static">
         <Toolbar>
-          <Menu />
+          <MainMenu />
           <Typography variant="h6" color="secondary">
             PARKBENCH BAGELS
           </Typography>
