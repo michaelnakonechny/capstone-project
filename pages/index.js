@@ -3,6 +3,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 import { useRouter } from 'next/router';
 import Dummybread from '../public/dummybread.png';
 import Image from 'next/image';
+import { MenuCardItem, MenuCheckbox } from './components/MenuCardItem';
 
 export default function Home({ ingredients, onEditBagle }) {
   const router = useRouter();
@@ -25,27 +26,18 @@ export default function Home({ ingredients, onEditBagle }) {
         }}
       >
         <ul>
-          {ingredients.map((ingredient, index) => {
-            return (
-              <MenuCard key={index}>
-                <div>
-                  <Image
-                    width="50px"
-                    height="50px"
-                    src={Dummybread}
-                    alt={ingredient.name}
-                  />
-                </div>
-                {ingredient.name}
-                <input
-                  type="checkbox"
-                  id={ingredient.id}
-                  onChange={() => onEditBagle(ingredient.id)}
-                  value={ingredient.chosen}
+          {ingredients.map((ingredient, index) => (
+            <MenuCardItem
+              ingredient={ingredient}
+              index={index}
+              interActiveElement={
+                <MenuCheckbox
+                  ingredient={ingredient}
+                  onEditBagle={onEditBagle}
                 />
-              </MenuCard>
-            );
-          })}
+              }
+            />
+          ))}
         </ul>
 
         <Button type="submit">Submit</Button>
@@ -69,4 +61,5 @@ const MenuCard = styled.li`
   padding: 1rem;
   margin: 1rem;
   gap: 0.5rem;
+  max-width: 300px;
 `;

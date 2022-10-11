@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: arial;
     margin: 0;
     height: 100%;
-    background-color: #fdd98a;
+    background-color: #fff7e8;
   }
 
   .MuiMenu-paper {

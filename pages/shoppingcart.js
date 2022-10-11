@@ -1,8 +1,6 @@
 import React from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
-import styled from 'styled-components';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { MenuCardItem, MenuDelete } from './components/MenuCardItem';
 
 function ShoppingCart() {
   const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
@@ -22,19 +20,15 @@ function ShoppingCart() {
       <h2>Shopping Cart</h2>
 
       <ul>
-        {selectedIngredients.map((ingredient) => {
-          return (
-            <li key={ingredient.id}>
-              {ingredient.name}
-              <IconButton
-                onClick={() => removeBagle(ingredient.id)}
-                aria-label="delete"
-              >
-                <DeleteIcon />
-              </IconButton>
-            </li>
-          );
-        })}
+        {selectedIngredients.map((ingredient, index) => (
+          <MenuCardItem
+            ingredient={ingredient}
+            index={index}
+            interActiveElement={
+              <MenuDelete ingredient={ingredient} removeBagle={removeBagle} />
+            }
+          />
+        ))}
       </ul>
     </>
   );
