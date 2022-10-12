@@ -5,11 +5,7 @@ import Dummybread from '../public/dummybread.png';
 import Image from 'next/image';
 import { MenuCardItem, MenuCheckbox } from './components/MenuCardItem';
 
-export default function Home({
-  ingredients,
-  onEditBagle,
-  onFilterByCategory: onCategoryChange,
-}) {
+export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
   const router = useRouter();
 
   const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
