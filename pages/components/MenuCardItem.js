@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 export const MenuCheckbox = ({ ingredient, onEditBagle }) => (
-  <input
+  <StyledCheckbox
     type="checkbox"
     id={ingredient.id}
     onChange={() => onEditBagle(ingredient.id)}
@@ -38,11 +38,18 @@ const MenuCard = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
+  border-radius: 2rem;
   list-style: none;
   min-height: 4rem;
   padding: 1rem;
   margin: 1rem;
   gap: 0.5rem;
   max-width: 300px;
+  background-color: #fab214;
+  /* background-color: #1b1a1c; */
+  color: #1b1a1c;
+`;
+
+const StyledCheckbox = styled.input`
+  background-color: black;
 `;

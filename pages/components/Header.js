@@ -8,7 +8,7 @@ export default function Header() {
       <Head>
         <title>PARKBENCH BAGELS</title>
       </Head>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <MainMenu />
           <Typography variant="h6" color="secondary">

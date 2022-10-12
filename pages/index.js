@@ -16,30 +16,32 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
   return (
     <>
       <h2>Build your own Bagel!</h2>
-      <button
-        value="all"
-        onClick={(event) => onCategoryChange(event.target.value)}
-      >
-        All Toppings
-      </button>
-      <button
-        value="bread"
-        onClick={(event) => onCategoryChange(event.target.value)}
-      >
-        Bread
-      </button>
-      <button
-        value="topping"
-        onClick={(event) => onCategoryChange(event.target.value)}
-      >
-        Topping
-      </button>
-      <button
-        value="extras"
-        onClick={(event) => onCategoryChange(event.target.value)}
-      >
-        Extra
-      </button>
+      <FilterButtonContainer>
+        <FilterButton
+          value="all"
+          onClick={(event) => onCategoryChange(event.target.value)}
+        >
+          ALL TOPPINGS
+        </FilterButton>
+        <FilterButton
+          value="bread"
+          onClick={(event) => onCategoryChange(event.target.value)}
+        >
+          BREAD
+        </FilterButton>
+        <FilterButton
+          value="topping"
+          onClick={(event) => onCategoryChange(event.target.value)}
+        >
+          TOPPING
+        </FilterButton>
+        <FilterButton
+          value="extras"
+          onClick={(event) => onCategoryChange(event.target.value)}
+        >
+          EXTRAS
+        </FilterButton>
+      </FilterButtonContainer>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -65,13 +67,44 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
           ))}
         </ul>
 
-        <Button type="submit">Submit</Button>
+        <SubmitButton type="submit">SUBMIT</SubmitButton>
       </form>
     </>
   );
 }
 
-const Button = styled.button`
-  background: orange;
-  color: white;
+const SubmitButton = styled.button`
+  background: #1b1a1c;
+  color: #fab214;
+  border-radius: 1rem;
+  padding 1rem;
+  border: none;
+  padding-left: 6rem;
+  padding-right: 6rem;
+  &: hover{background-color: #fab214;
+   color:#1b1a1c;}
+   &: active{background-color: #1b1a1c;
+   color:#fab214;} 
+
+`;
+
+const FilterButton = styled.button`
+  background: #1b1a1c;
+  color: #fab214;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.5rem;
+  &: hover {
+    background-color: #fab214;
+    color: #1b1a1c;
+  }
+  &: active {
+    background-color: #1b1a1c;
+    color: #fab214;
+  }
+`;
+
+const FilterButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
 `;
