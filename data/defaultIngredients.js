@@ -24,14 +24,14 @@ export const defaultIngredients = [
     id: 4,
     name: 'Dummy Topping 3',
     chosen: false,
-    category: 'toppings',
+    category: 'topping',
     isVegetarian: true,
   },
   {
     id: 5,
     name: 'Dummy Meat 3',
     chosen: false,
-    category: 'toppings',
+    category: 'extras',
     isVegetarian: false,
   },
 ];

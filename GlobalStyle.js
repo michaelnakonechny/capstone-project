@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: arial;
     margin: 0;
-    height: 100%;
+    height: auto;
     background-color: #fff7e8;
   }
 

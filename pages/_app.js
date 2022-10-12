@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
+  const [category, setCategory] = useState('all');
 
   function editBagle(id) {
     const updatedIngredients = ingredients.map((ingredient) => {
@@ -18,14 +19,23 @@ function MyApp({ Component, pageProps }) {
     setIngredients(updatedIngredients);
   }
 
+  function filterByCategory(category) {
+    if (category === 'all') return ingredients;
+    else
+      return ingredients.filter(
+        (ingredient) => ingredient.category === category
+      );
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalCSS />
       <Layout>
         <Component
           {...pageProps}
-          ingredients={ingredients}
+          ingredients={filterByCategory(category)}
           onEditBagle={editBagle}
+          onCategoryChange={setCategory}
         />
       </Layout>
     </ThemeProvider>

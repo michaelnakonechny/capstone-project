@@ -5,7 +5,11 @@ import Dummybread from '../public/dummybread.png';
 import Image from 'next/image';
 import { MenuCardItem, MenuCheckbox } from './components/MenuCardItem';
 
-export default function Home({ ingredients, onEditBagle }) {
+export default function Home({
+  ingredients,
+  onEditBagle,
+  onFilterByCategory: onCategoryChange,
+}) {
   const router = useRouter();
 
   const [selectedIngredients, setSelectedIngredients] = useLocalStorage(
@@ -16,6 +20,30 @@ export default function Home({ ingredients, onEditBagle }) {
   return (
     <>
       <h2>Build your own Bagel!</h2>
+      <button
+        value="all"
+        onClick={(event) => onCategoryChange(event.target.value)}
+      >
+        All Toppings
+      </button>
+      <button
+        value="bread"
+        onClick={(event) => onCategoryChange(event.target.value)}
+      >
+        Bread
+      </button>
+      <button
+        value="topping"
+        onClick={(event) => onCategoryChange(event.target.value)}
+      >
+        Topping
+      </button>
+      <button
+        value="extras"
+        onClick={(event) => onCategoryChange(event.target.value)}
+      >
+        Extra
+      </button>
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -30,6 +58,7 @@ export default function Home({ ingredients, onEditBagle }) {
             <MenuCardItem
               ingredient={ingredient}
               index={index}
+              key={index}
               interActiveElement={
                 <MenuCheckbox
                   ingredient={ingredient}
@@ -49,17 +78,4 @@ export default function Home({ ingredients, onEditBagle }) {
 const Button = styled.button`
   background: orange;
   color: white;
-`;
-
-const MenuCard = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid black;
-  list-style: none;
-  min-height: 4rem;
-  padding: 1rem;
-  margin: 1rem;
-  gap: 0.5rem;
-  max-width: 300px;
 `;

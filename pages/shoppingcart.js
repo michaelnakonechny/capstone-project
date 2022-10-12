@@ -24,6 +24,7 @@ function ShoppingCart() {
           <MenuCardItem
             ingredient={ingredient}
             index={index}
+            key={index}
             interActiveElement={
               <MenuDelete ingredient={ingredient} removeBagle={removeBagle} />
             }
