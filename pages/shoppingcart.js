@@ -1,6 +1,6 @@
 import React from 'react';
 import useLocalStorage from '../hooks/useLocalStorage';
-import { MenuCardItem, MenuDelete } from './components/MenuCardItem';
+import { MenuCardItem, MenuDelete } from '/components/MenuCardItem';
 
 function ShoppingCart() {
   const [selectedIngredients, setSelectedIngredients] = useLocalStorage(

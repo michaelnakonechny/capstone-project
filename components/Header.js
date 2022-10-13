@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import Head from 'next/head';
 import MainMenu from './Mainmenu';
-import Pblogo from '../../public/pblogo.png';
+import Pblogo from '../public/pblogo.png';
 import Image from 'next/image';
 
 export default function Header() {

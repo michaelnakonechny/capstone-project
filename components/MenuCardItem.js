@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import Dummybread from '../../public/dummybread.png';
+import Dummybread from '../public/dummybread.png';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 

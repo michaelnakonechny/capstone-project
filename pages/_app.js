@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { defaultIngredients } from '../data/defaultIngredients';
 import GlobalCSS from '../GlobalStyle';
 import theme from '../theme';
-import Layout from './components/Layout';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
