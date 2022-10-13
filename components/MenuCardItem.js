@@ -25,12 +25,12 @@ export const MenuCardItem = ({ index, ingredient, interActiveElement }) => (
       <Image
         width="50px"
         height="50px"
-        src={Dummybread}
+        src={ingredient.image}
+        // src={Dummybread}
         alt={ingredient.name}
       />
     </div>
-    {ingredient.name}
-    {interActiveElement}
+    {ingredient.name} |{ingredient.price}€|{interActiveElement}
   </MenuCard>
 );
 
@@ -44,7 +44,7 @@ const MenuCard = styled.li`
   padding: 1rem;
   margin: 1rem;
   gap: 0.5rem;
-  width: 350px;
+  width: 400px;
   background-color: #fab214;
   /* background-color: #1b1a1c; */
   color: #1b1a1c;

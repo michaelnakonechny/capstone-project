@@ -15,7 +15,7 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
 
   return (
     <>
-      <Headline>Build your own Bagel!</Headline>
+      <Headline>BUILD YOUR OWN BAGEL!</Headline>
       <FilterButtonContainer>
         <FilterButton
           value="all"
