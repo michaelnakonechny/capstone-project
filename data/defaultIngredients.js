@@ -50,7 +50,7 @@ export const defaultIngredients = [
     chosen: false,
     category: 'topping',
     isVegetarian: false,
-    price: 4,
+    price: 3,
     image: '/veggiebagel.png',
   },
   {
