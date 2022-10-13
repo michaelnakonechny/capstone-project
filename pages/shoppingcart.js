@@ -28,24 +28,26 @@ function ShoppingCart() {
 
   return (
     <>
-      <h2>Shopping Cart</h2>
+      <SectionWrap>
+        <h2>SHOPPING CART</h2>
 
-      <IngredientWrap>
-        {selectedIngredients.map((ingredient, index) => (
-          <MenuCardItem
-            ingredient={ingredient}
-            index={index}
-            key={index}
-            interActiveElement={
-              <MenuDelete ingredient={ingredient} removeBagle={removeBagle} />
-            }
-          />
-        ))}
-      </IngredientWrap>
-      <SubmitButton type="submit">
-        CHECKOUT | PRICE: {sumWithInitial}€
-      </SubmitButton>
-      <span></span>
+        <IngredientWrap>
+          {selectedIngredients.map((ingredient, index) => (
+            <MenuCardItem
+              ingredient={ingredient}
+              index={index}
+              key={index}
+              interActiveElement={
+                <MenuDelete ingredient={ingredient} removeBagle={removeBagle} />
+              }
+            />
+          ))}
+        </IngredientWrap>
+
+        <SubmitButton type="submit">
+          CHECKOUT | PRICE: {sumWithInitial}€
+        </SubmitButton>
+      </SectionWrap>
     </>
   );
 }
@@ -69,6 +71,12 @@ const SubmitButton = styled.button`
 `;
 
 const IngredientWrap = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const SectionWrap = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
