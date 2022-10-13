@@ -1,36 +1,13 @@
-import { useEffect, useState } from 'react';
-import Layout from './components/Layout';
-import useLocalStorage from '../hooks/useLocalStorage';
-
-const defaultIngredients = [
-  {
-    id: 1,
-    name: 'Dummy Bread 1',
-    chosen: false,
-    category: 'bread',
-  },
-  {
-    id: 2,
-    name: 'Dummy Bread 2',
-    chosen: false,
-    category: 'bread',
-  },
-  {
-    id: 3,
-    name: 'Dummy Bread 3',
-    chosen: false,
-    category: 'bread',
-  },
-  {
-    id: 4,
-    name: 'Dummy Topping 3',
-    chosen: false,
-    category: 'toppings',
-  },
-];
+import { ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
+import { defaultIngredients } from '../data/defaultIngredients';
+import GlobalCSS from '../GlobalStyle';
+import theme from '../theme';
+import Layout from '../components/Layout';
 
 function MyApp({ Component, pageProps }) {
   const [ingredients, setIngredients] = useState(defaultIngredients);
+  const [category, setCategory] = useState('all');
 
   function editBagle(id) {
     const updatedIngredients = ingredients.map((ingredient) => {
@@ -42,16 +19,26 @@ function MyApp({ Component, pageProps }) {
     setIngredients(updatedIngredients);
   }
 
+  function filterByCategory(category) {
+    if (category === 'all') return ingredients;
+    else
+      return ingredients.filter(
+        (ingredient) => ingredient.category === category
+      );
+  }
+
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <GlobalCSS />
       <Layout>
         <Component
           {...pageProps}
-          ingredients={ingredients}
+          ingredients={filterByCategory(category)}
           onEditBagle={editBagle}
+          onCategoryChange={setCategory}
         />
       </Layout>
-    </>
+    </ThemeProvider>
   );
 }
 
