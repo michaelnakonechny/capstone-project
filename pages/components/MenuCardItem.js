@@ -44,7 +44,7 @@ const MenuCard = styled.li`
   padding: 1rem;
   margin: 1rem;
   gap: 0.5rem;
-  max-width: 300px;
+  width: 350px;
   background-color: #fab214;
   /* background-color: #1b1a1c; */
   color: #1b1a1c;

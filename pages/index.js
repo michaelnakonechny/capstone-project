@@ -15,7 +15,7 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
 
   return (
     <>
-      <h2>Build your own Bagel!</h2>
+      <Headline>Build your own Bagel!</Headline>
       <FilterButtonContainer>
         <FilterButton
           value="all"
@@ -42,7 +42,7 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
           EXTRAS
         </FilterButton>
       </FilterButtonContainer>
-      <form
+      <Formular
         onSubmit={(event) => {
           event.preventDefault();
           setSelectedIngredients(
@@ -51,7 +51,7 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
           router.push({ pathname: '/shoppingcart', query: { data: 'test' } });
         }}
       >
-        <ul>
+        <IngredientWrap>
           {ingredients.map((ingredient, index) => (
             <MenuCardItem
               ingredient={ingredient}
@@ -65,10 +65,10 @@ export default function Home({ ingredients, onEditBagle, onCategoryChange }) {
               }
             />
           ))}
-        </ul>
+        </IngredientWrap>
 
         <SubmitButton type="submit">SUBMIT</SubmitButton>
-      </form>
+      </Formular>
     </>
   );
 }
@@ -77,15 +77,18 @@ const SubmitButton = styled.button`
   background: #1b1a1c;
   color: #fab214;
   border-radius: 1rem;
-  padding 1rem;
+  padding: 1rem;
   border: none;
   padding-left: 6rem;
   padding-right: 6rem;
-  &: hover{background-color: #fab214;
-   color:#1b1a1c;}
-   &: active{background-color: #1b1a1c;
-   color:#fab214;} 
-
+  &:hover {
+    background-color: #fab214;
+    color: #1b1a1c;
+  }
+  &:active {
+    background-color: #1b1a1c;
+    color: #fab214;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -94,11 +97,11 @@ const FilterButton = styled.button`
   border-radius: 1rem;
   border: none;
   padding: 0.5rem;
-  &: hover {
+  &:hover {
     background-color: #fab214;
     color: #1b1a1c;
   }
-  &: active {
+  &:active {
     background-color: #1b1a1c;
     color: #fab214;
   }
@@ -107,4 +110,20 @@ const FilterButton = styled.button`
 const FilterButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
+`;
+
+const Headline = styled.h2`
+  text-align: center;
+`;
+
+const IngredientWrap = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Formular = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
